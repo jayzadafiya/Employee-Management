@@ -55,6 +55,8 @@ export const listEmployees = async (
       {
         $project: {
           reviews: 0,
+          __v: 0,
+          updatedAt: 0,
         },
       },
       {
