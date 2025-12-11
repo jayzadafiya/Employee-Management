@@ -44,6 +44,19 @@ export interface IEmployeeListResult {
   limit: number;
 }
 
+export interface ICursorPagination {
+  nextCursor?: string;
+  prevCursor?: string;
+  hasNext: boolean;
+  hasPrev: boolean;
+  limit: number;
+}
+
+export interface IEmployeeCursorResult {
+  employees: Array<Record<string, unknown>>;
+  pagination: ICursorPagination;
+}
+
 // Review Types
 export interface IReview {
   _id?: string;
