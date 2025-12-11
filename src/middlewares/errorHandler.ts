@@ -1,13 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import AppError from '@utils/appError';
 import config from '@config/config';
-
-interface IErrorResponse {
-  success: boolean;
-  message: string;
-  error?: any;
-  stack?: string;
-}
+import { IErrorResponse } from '@types';
 
 const handleCastErrorDB = (err: any): AppError => {
   const message = `Invalid ${err.path}: ${err.value}`;
