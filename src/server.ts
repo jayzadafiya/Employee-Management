@@ -21,8 +21,7 @@ const server = app.listen(config.port, () => {
 ║   Environment: ${config.env.padEnd(28)}║
 ║   Port: ${String(config.port).padEnd(35)}║
 ║   Database: MongoDB                        ║
-║   Status: ✅ 
-Running                       ║
+║   Status: ✅ Running                       ║
 ╚════════════════════════════════════════════╝
   `);
 });

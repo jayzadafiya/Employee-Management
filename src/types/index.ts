@@ -54,6 +54,15 @@ export interface IReview {
   updatedAt?: Date;
 }
 
+export interface ITopPerformer {
+  _id: string;
+  firstName: string;
+  lastName: string;
+  department: string;
+  averageRating: number;
+  numberOfReviews: number;
+}
+
 // API Response Types
 export interface IApiResponse {
   success: boolean;
