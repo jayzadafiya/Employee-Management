@@ -6,6 +6,7 @@
     "dev": "nodemon -r tsconfig-paths/register src/server.ts",
     "build": "tsc",
     "start": "node -r tsconfig-paths/register dist/server.js",
+    "migrate": "ts-node -r tsconfig-paths/register src/scripts/migrate.ts",
     "lint": "eslint . --ext .ts",
     "format": "prettier --write \"src/**/*.ts\""
   },
