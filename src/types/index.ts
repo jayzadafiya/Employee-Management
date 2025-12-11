@@ -1,4 +1,5 @@
 import { Request } from 'express';
+import { Types } from 'mongoose';
 
 // Auth Types
 export interface IAuthRequest extends Request {
@@ -46,8 +47,8 @@ export interface IEmployeeListResult {
 // Review Types
 export interface IReview {
   _id?: string;
-  employeeId: string;
-  reviewerId: string;
+  employeeId: Types.ObjectId;
+  reviewerId: Types.ObjectId;
   rating: number;
   createdAt?: Date;
   updatedAt?: Date;

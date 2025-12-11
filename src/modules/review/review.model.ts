@@ -4,12 +4,12 @@ import { IReview } from '@types';
 const reviewSchema = new Schema<IReview>(
   {
     employeeId: {
-      type: String,
+      type: Schema.Types.ObjectId,
       required: [true, 'Employee ID is required'],
       ref: 'Employee',
     },
     reviewerId: {
-      type: String,
+      type: Schema.Types.ObjectId,
       required: [true, 'Reviewer ID is required'],
       ref: 'Employee',
     },

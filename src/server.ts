@@ -16,12 +16,13 @@ connectDB();
 const server = app.listen(config.port, () => {
   console.log(`
 ╔════════════════════════════════════════════╗
-║   🚀 Employee Management API Server       ║
+║   🚀 Employee Management API Server        ║
 ╠════════════════════════════════════════════╣
-║   Environment: ${config.env.padEnd(28)} ║
-║   Port: ${String(config.port).padEnd(35)} ║
+║   Environment: ${config.env.padEnd(28)}║
+║   Port: ${String(config.port).padEnd(35)}║
 ║   Database: MongoDB                        ║
-║   Status: ✅ Running                        ║
+║   Status: ✅ 
+Running                       ║
 ╚════════════════════════════════════════════╝
   `);
 });
