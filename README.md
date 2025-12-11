@@ -202,25 +202,7 @@ GET /api/employees?page=1&limit=5&department=Engineering
 
 ---
 
-#### 2. List Employees (Count-based Pagination)
-
-```http
-GET /api/employees/counterList
-```
-
-**Query Parameters:** Same as above
-
-**Description:** Uses `countDocuments()` for more efficient counting on large datasets.
-
-**Example:**
-
-```http
-GET /api/employees/counterList?department=Legal&page=1&limit=3
-```
-
----
-
-#### 3. List Employees (Cursor Pagination)
+#### 2. List Employees (Cursor Pagination)
 
 ```http
 GET /api/employees/cursorList
