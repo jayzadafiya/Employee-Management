@@ -48,3 +48,42 @@ export const getEmployees = async (
     next(error);
   }
 };
+export const getEmployeesWithCursorPagination = async (
+  req: IAuthRequest,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
+  try {
+    const cursor = (req.query.cursor as string) || null;
+    const limit = parseInt(req.query.limit as string) || 10;
+
+    if (req.query.limit && (isNaN(limit) || limit < 1)) {
+      throw new AppError('Invalid limit parameter. Limit must be a valid positive number.', 400);
+    }
+
+    const allowedFilters: (keyof IEmployeeFilters)[] = ['department', 'firstName', 'lastName'];
+    const filters: IEmployeeFilters = {};
+
+    for (const filter of allowedFilters) {
+      const value = req.query[filter];
+      if (value && typeof value === 'string' && value.trim()) {
+        filters[filter] = value.trim();
+      }
+    }
+
+    const result = await employeeService.listEmployeesWithCursor(cursor, limit, filters);
+
+    res.status(200).json({
+      success: true,
+      message: 'Employees fetched successfully with cursor pagination',
+      data: result.employees,
+      pagination: result.pagination,
+    });
+  } catch (error) {
+    if (error instanceof AppError) {
+      errorResponse(res, error.message, error.statusCode);
+      return;
+    }
+    next(error);
+  }
+};

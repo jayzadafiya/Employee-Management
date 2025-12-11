@@ -7,5 +7,6 @@ const router = Router();
 router.use(mockAuth);
 
 router.get('/', employeeController.getEmployees);
+router.get('/cursorList', employeeController.getEmployeesWithCursorPagination);
 
 export default router;
